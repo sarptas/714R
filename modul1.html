@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<title>Modul 1: R Ortamına Giriş</title>
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #0000ff; } /* Keyword */
+code > span.ch { color: #008080; } /* Char */
+code > span.st { color: #008080; } /* String */
+code > span.co { color: #008000; } /* Comment */
+code > span.ot { color: #ff4000; } /* Other */
+code > span.al { color: #ff0000; } /* Alert */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #008000; font-weight: bold; } /* Warning */
+code > span.cn { } /* Constant */
+code > span.sc { color: #008080; } /* SpecialChar */
+code > span.vs { color: #008080; } /* VerbatimString */
+code > span.ss { color: #008080; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #0000ff; } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ff4000; } /* Preprocessor */
+code > span.do { color: #008000; } /* Documentation */
+code > span.an { color: #008000; } /* Annotation */
+code > span.cv { color: #008000; } /* CommentVar */
+code > span.at { } /* Attribute */
+code > span.in { color: #008000; } /* Information */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<h1>Modül 1: Temel R Ortamına Giriş</h1>
+
+</div>
+
+<div id="r-statistical-programming" class="section level1">
+<h1><strong>R ve İstatistiksel Programlama</strong></h1>
+<div id="purpose-of-statistical-programming-software" class="section level2">
+<h2>İstatistiksel programlama yazılımlarının amacı</h2>
+<p>Hesap çizelgesi uygulamalarının (Excel gibi) veya tıkla-çalıştır istatistiksel analiz yazılımlarının (SPSS gibi) aksine, istatistiksel programlama yazılımları, kullanıcının yürütülecek bir dizi komutu yazdığı bir betik dosyası (script) üzerine kuruludur.</p>
+<p><strong>İstatistiksel programlama yazılımlarının avantajları</strong></p>
+<ul>
+<li><p>Veri analizi süreci tekrarlanabilir ve şeffaftır.</p></li>
+<li><p>Dil tabanlı programlamanın ucu açık doğası gereği, verilerle yapabileceklerinizde çok daha fazla çok yönlülük ve özelleştirilebilirlik vardır.</p></li>
+<li><p><em>Genellikle</em> istatistiksel programlama yazılımları, hesap çizelgelerine vb. göre çok daha kapsamlı yerleşik analiz fonksiyonlarına sahiptir.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="characteristics-of-r" class="section level2">
+<h2>R'ın Özellikleri</h2>
+<ul>
+<li><p>R, özellikle istatistiksel hesaplama için tasarlanmış açık kaynaklı bir dildir (ve istatistikçiler arasında en popüler seçimdir).</p></li>
+<li><p>Popülerliği ve açık kaynaklı doğası nedeniyle, R topluluğunun paket geliştirme hızı, diğer tüm veri analizi yazılımlarından daha fazla önceden yazılmış fonksiyona sahip olduğu anlamına gelir.</p></li>
+<li><p>Stata gibi yazılımlardan farklı olarak, önceden yazılmış fonksiyonları kullanabildiğiniz gibi, kendi çözümlerinizi programlamak konusunda da aynı derecede yetkindir.</p></li>
+<li><p>Kullanım alanı daha geniş olduğu için R, Stata'ya göre daha dik bir öğrenme eğrisine sahiptir.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="comparison-to-other-statistical-programming-software" class="section level2">
+<h2>Diğer istatistiksel programlama yazılımlarıyla karşılaştırma</h2>
+<ul>
+<li><strong>Stata</strong>: (Akademik) ekonomistlerin geleneksel seçimi.
+<ul>
+<li>Stata daha çok ekonometri odaklıdır ve komut odaklı bir yapıdadır. Standart uygulamalar için kullanımı daha kolaydır, ancak yapmak istediğiniz şey için bir Stata komutu yoksa, kendi başınıza bir şey yazmak daha zordur.<br />
+</li>
+<li>Stata ayrıca R'dan farklı olarak aynı anda sadece tek bir veri setiyle çalışmanıza izin verirken, R'da çalışma ortamında birden fazla veri nesnesinin bulunması tipiktir.</li>
+</ul></li>
+<li><p><strong>SAS</strong>: Stata'ya benzer ancak daha çok iş dünyasında ve özel sektörde kullanılır; bunun bir nedeni devasa veri setleri için genellikle daha kullanışlı olmasıdır. Bunun dışında, biraz daha eski ve daha az kullanıcı dostu olarak görülür.</p></li>
+<li><p><strong>Python</strong>: Sıfırdan programlamaya dayanan ve daha az önceden yazılmış (hazır) komuta sahip bir başka seçenek. Python sadece matematik ve istatistiğe özel değildir, çeşitli alanlarda kullanılan genel bir programlama dilidir.<br />
+Şu anda ekonometriye/veri analizine özel paket gelişiminin daha az olması pahasına, daha iyi genel kullanım ve programlama kolaylığı ile R'a en benzer yazılım seçeneğidir.</p></li>
+<li><p><strong>Matlab</strong>: Makroekonomi ve teori çalışmalarında popülerdir, ampirik çalışmalarda pek tercih edilmez. Matlab güçlüdür ancak daha çok matrisler ve matematiksel ifadeler kullanarak "sıfırdan" programlamaya dayalıdır.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="useful-resources-for-learning-r" class="section level2">
+<h2>R öğrenmek için yararlı kaynaklar</h2>
+<ul>
+<li><strong>DataCamp:</strong> R üzerine etkileşimli çevrimiçi dersler.
+<ul>
+<li>Bazı kurslar ücretsizdir (özellikle bugün yapacağınız topluluk tarafından yazılmış dersler gibi), ancak ücretli kurslar için DataCamp yaklaşık 300 SEK / ay maliyetindedir.</li>
+</ul></li>
+<li><p><strong>RStudio Cheat Sheets:</strong> R'daki yaygın görevlerin ve paketlerin 1-2 sayfalık çok yararlı özetleri.</p></li>
+<li><p><strong>Quick-R:</strong> R işlevselliğinin kısa örneklerle anlatıldığı web sitesi.</p></li>
+<li><p><strong>StackOverflow:</strong> Stack Exchange ağının bir parçası olan StackOverflow, programlama ile uğraşanlar için bir Soru-Cevap topluluk sitesidir. Çok sayıda inanılmaz iyi R kullanıcısı ve geliştiricisi burada etkileşim kurar, bu nedenle sorularınıza cevap aramak için harika bir yerdir.</p></li>
+<li><p><strong>R-Bloggers:</strong> R hakkındaki blog yazıları için bir içerik toplayıcı. R'da yapabileceğiniz harika şeyleri öğrenmek için mükemmel bir yer.</p></li>
+<li><p><strong>R for Data Science:</strong> Tidyverse dahil olmak üzere R için en iyi paketlerin çoğunu yazan Hadley Wickham'ın kitabının çevrimiçi versiyonu.</p></li>
+</ul>
+<p><br> <br></p>
+</div>
+</div>
+<div id="getting-started-in-r" class="section level1">
+<h1><strong>R'a Başlarken</strong></h1>
+<p><br></p>
+<div id="rstudio-gui" class="section level2">
+<h2>RStudio Arayüzü (GUI)</h2>
+<p>RStudio bir entegre geliştirme ortamıdır (IDE).</p>
+<p>Bu, bir betik (script) düzenleyicisine ek olarak ortamlarınızı, veri nesnelerinizi, grafiklerinizi, yardım dosyalarınızı vb. doğrudan uygulama içinde görmenize olanak tanıdığı anlamına gelir.</p>
+<div class="figure">
+<img src="assets/RStudioGUI.png" />
+
+</div>
+<p><br></p>
+</div>
+<div id="executing-code-from-the-script" class="section level2">
+<h2>Betikten kod yürütme</h2>
+<p>Bir kod bölümünü yürütmek için kodu vurgulayın ve "Run"a tıklayın veya Ctrl-Enter kısayolunu kullanın.</p>
+<ul>
+<li><p>Tek bir kod satırı için vurgulama yapmanıza gerek yoktur, sadece o satıra tıklamanız yeterlidir.</p></li>
+<li><p>Tüm belgeyi yürütmek için kısayol Ctrl-Shift-Enter'dır.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="style-advise" class="section level2">
+<h2>Stil Tavsiyesi</h2>
+<p>Stata'nın aksine R'da çok satırlı kod yazmak için özel bir koda ihtiyacınız yoktur - bu varsayılandır (fonksiyonlar parantezlerle yazılır, bu nedenle satırın ne zaman bittiği bellidir.)</p>
+<ul>
+<li><p>Bu yüzden çok uzun satırlar için mazeretiniz yok. Kabul edilen stil, satırlarınız için 80 karakterlik bir sınır kullanmanızı önerir.</p></li>
+<li>RStudio'da kenar boşlukları için bir kılavuz çizgisi gösterme seçeneği vardır. <strong>Bunu kullanın!</strong>
+<ul>
+<li><strong>Tools -> Global Options -> Code -> Display</strong> yolunu izleyin, ardından <strong>Show Margin</strong> seçeneğini seçin ve 80 karakter girin.</li>
+</ul></li>
+</ul>
+<p>Ayrıca, manuel satır sonu olarak <span style="color:blue">;</span> kullanarak aynı satıra birden fazla ifade yazabilirsiniz.</p>
+<p><br></p>
+</div>
+<div id="comments" class="section level2">
+<h2>Yorumlar</h2>
+<p>R'da bir yorum oluşturmak için kare (<span style="color:blue"> <strong>#</strong></span>) işaretini kullanın. Örneğin:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Burada 2 + 2 topluyorum</span>
+<span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p><br></p>
+</div>
+<div id="help-files-in-r" class="section level2">
+<h2>R'da Yardım Dosyaları</h2>
+<p><strong>help</strong> fonksiyonunu kullanarak herhangi bir fonksiyonun yardım dosyasına erişebilirsiniz. Bunu birkaç farklı şekilde çağırabilirsiniz:</p>
+<ol style="list-style-type: decimal">
+<li>Konsolda <span style="color:blue"> <strong>help()</strong></span> komutunu kullanın</li>
+<li>Konsolda, fonksiyon adından hemen önce (arada boşluk bırakmadan) <span style="color:blue"> <strong>?</strong></span> işaretini kullanın</li>
+<li>Yardım (Help) panelinde ilgili fonksiyonu arayın.</li>
+</ol>
+<p><span style="color:blue"> <strong>?</strong></span> daha kısa olduğu için en sık kullanılan yöntemdir.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># lm (lineer regresyon) fonksiyonu hakkında yardım</span>
+?lm</code></pre></div>
+<p><br></p>
+</div>
+<div id="setting-the-working-directory" class="section level2">
+<h2>Çalışma dizinini ayarlama</h2>
+<p>Çalışma dizinini ayarlamak için <span style="color:blue"> <strong>setwd()</strong></span> fonksiyonunu kullanın. Fonksiyonun argümanı, tırnak içinde çalışma dizininin yoludur.</p>
+<p>Ancak dikkat edin: yoldaki eğik çizgilerin ileri eğik çizgi (/) olduğundan emin olun. Windows'ta Dosya Gezgini'nden yolu kopyalarsanız bu durum böyle değildir, bu yüzden onları değiştirmeniz gerekecektir.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Çalışma Dizinini Ayarla</span>
+<span class="kw">setwd</span>(<span class="st">&quot;C:/Users/Andrew/Documents/Projem&quot;</span>)</code></pre></div>
+<p><br> <br></p>
+</div>
+</div>
+<div id="data-types-operations" class="section level1">
+<h1><strong>Veri Tipleri ve İşlemler</strong></h1>
+<div id="math-operations-in-r" class="section level2">
+<h2>R'da matematiksel işlemler</h2>
+<p>R'daki temel matematiksel işlemlerden örnekler:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Toplama ve Çıkarma</span>
+<span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Çarpma ve Bölme</span>
+<span class="dv">2</span><span class="op">*</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">/</span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Üs Alma ve Logaritma</span>
+<span class="dv">2</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="kw">log</span>(<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 4.693147</code></pre>
+<p><br></p>
+</div>
+<div id="logical-operations-in-r" class="section level2">
+<h2>R'da mantıksal işlemler</h2>
+<p>R'da mantıksal ifadeleri de değerlendirebilirsiniz</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Küçüktür veya eşittir
+<span class="dv">5</span> <span class="op">&lt;=</span><span class="st"> </span><span class="dv">6</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Büyüktür veya eşittir
+<span class="dv">5</span> <span class="op">&gt;=</span><span class="st"> </span><span class="dv">6</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Eşitlik
+<span class="dv">5</span> <span class="op">==</span><span class="st"> </span><span class="dv">6</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Eşit değildir (Değilleme)
+<span class="dv">5</span> <span class="op">!=</span><span class="st"> </span><span class="dv">6</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Mantıksal ifadelerle VE (<span style="color:blue"> <strong>&amp;</strong></span>) ve VEYA (<span style="color:blue"> <strong>|</strong></span>) işlemlerini de kullanabilirsiniz:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 5, 5'e eşit VEYA 5, 6'ya eşit mi?
+(<span class="dv">5</span> <span class="op">==</span><span class="st"> </span><span class="dv">5</span>) <span class="op">|</span><span class="st"> </span>(<span class="dv">5</span> <span class="op">==</span><span class="st"> </span><span class="dv">6</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 5, 6'dan küçük VE 7, 6'dan küçük mü?
+(<span class="dv">5</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">6</span>) <span class="op">&amp;</span><span class="st"> </span>(<span class="dv">7</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">6</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p><br></p>
+</div>
+<div id="defining-an-object" class="section level2">
+<h2>Bir nesne tanımlama</h2>
+<p>Bir nesne tanımlamak için <span style="color:blue"><strong>&lt;-</strong></span> kullanın. Örneğin:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 2 + 2'yi x değişkenine ata</span>
+x &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<p><strong>Not:</strong> R'da bir nesneyi tanımlamak ile yeniden tanımlamak arasında fark yoktur (Stata'daki gen/replace gibi).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="dv">4</span> <span class="co"># y'yi tanımla</span>
+y &lt;-<span class="st"> </span>y<span class="op">^</span><span class="dv">2</span> <span class="co"># y'yi yeniden tanımla</span>
+y <span class="co"># y'yi yazdır </span></code></pre></div>
+<pre><code>## [1] 16</code></pre>
+<p><br></p>
+</div>
+<div id="data-classes" class="section level2">
+<h2>Veri sınıfları</h2>
+<p>R'daki veri öğeleri birkaç ayrı sınıfa (yani tipe) ayrılır:</p>
+<ul>
+<li><p><strong>numeric</strong>: Sayı olarak yorumlanması gereken veriler.</p></li>
+<li><p><strong>logical:</strong> Mantıksal ifade olarak yorumlanması gereken veriler, yani TRUE (DOĞRU) veya FALSE (YANLIŞ).</p></li>
+<li><strong>character</strong>: Dizeler/metinler.
+<ul>
+<li>Not: Verilerinizi nasıl formatladığınıza bağlı olarak, mantıksal veya sayısal görünen öğeler aslında 'character' (karakter) olabilir.</li>
+</ul></li>
+<li><p><strong>factor</strong>: Aslında kategorik bir değişken. Değer metin olabilir ancak R, değişkeni sınırlı sayıda olası değerden birini alıyor olarak yorumlar (örneğin cinsiyet, belediye, sektör vb.).</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="whats-the-object-class" class="section level2">
+<h2>Nesnenin sınıfı nedir?</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="dv">2</span>; <span class="kw">class</span>(a)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b &lt;-<span class="st">&quot;2&quot;</span>; <span class="kw">class</span>(b)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">c &lt;-<span class="st"> </span><span class="ot">TRUE</span>; <span class="kw">class</span>(c)</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d &lt;-<span class="st"> &quot;True&quot;</span>; <span class="kw">class</span>(d)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p><br> <br></p>
+</div>
+</div>
+<div id="vectors-matrices" class="section level1">
+<h1><strong>Vektörler ve Matrisler</strong></h1>
+<p><br></p>
+<div id="vectors" class="section level2">
+<h2>Vektörler</h2>
+<p>R'da birden fazla öğe içeren temel veri yapısı vektördür.</p>
+<ul>
+<li><p>R vektörü matematikteki tipik vektör görünümüne çok benzer, yani temel olarak öğelerin 1 boyutlu (1D) bir dizisidir.</p></li>
+<li><p>Tipik vektörler tek tiptedir (bunlara atomik vektörler denir).</p></li>
+<li><p>Bir <em>list</em> (liste) vektörü farklı tiplerde öğelere de sahip olabilir.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="creating-vectors" class="section level2">
+<h2>Vektör oluşturma</h2>
+<p>Bir vektör oluşturmak için <span style="color:blue"><strong>c()</strong></span> fonksiyonunu kullanın.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># `days` vektörlerini oluştur</span>
+days &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Pzt&quot;</span>,<span class="st">&quot;Sal&quot;</span>,<span class="st">&quot;Çar&quot;</span>,
+           <span class="st">&quot;Per&quot;</span>, <span class="st">&quot;Cum&quot;</span>)
+
+<span class="co"># `temps` vektörlerini oluştur</span>
+temps &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">13</span>,<span class="dv">18</span>,<span class="dv">17</span>,<span class="dv">20</span>,<span class="dv">21</span>)
+<span class="co"># `temps` vektörünü görüntüle</span>
+temps</code></pre></div>
+<pre><code>## [1] 13 18 17 20 21</code></pre>
+<p><br></p>
+</div>
+<div id="naming-vectors" class="section level2">
+<h2>Vektörleri adlandırma</h2>
+<p>Adlandırılacak vektörü parantez içine koyup <span style="color:blue"><strong>names()</strong></span> fonksiyonuna bir isim vektörü atayarak bir vektörü adlandırabilirsiniz.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># `days` vektörünü `temps` vektörü için isim olarak ata</span>
+<span class="kw">names</span>(temps) &lt;-<span class="st"> </span>days
+<span class="co"># `temps` vektörünü görüntüle</span>
+temps</code></pre></div>
+<pre><code>##   Pzt  Sal   Çar  Per   Cum
+##    13    18    17    20    21</code></pre>
+<p><br></p>
+</div>
+<div id="subsetting-vectors" class="section level2">
+<h2>Vektörleri alt kümelere ayırma</h2>
+<p>R'da verileri alt kümelere ayırmanın birden fazla yolu vardır. Vektörler için en kolay yöntemlerden biri, alt küme koşulunu köşeli parantez içine koymaktır:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Sıcaklığı (temps) 18'e eşit veya büyük olanları alt kümele</span>
+temps[temps<span class="op">&gt;=</span><span class="dv">18</span>]</code></pre></div>
+<pre><code>##  Sal  Per   Cum
+##    18    20    21</code></pre>
+<p><br></p>
+</div>
+<div id="operations-on-vectors" class="section level2">
+<h2>Vektörler üzerinde işlemler</h2>
+<p>Vektörler üzerindeki işlemler öğe bazlıdır (element-wise). Yani iki vektör birbirine eklenirse, 2. vektörün her bir öğesi 1. vektördeki karşılık gelen öğeye eklenir.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 2. hafta için sıcaklık vektörü</span>
+temps2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">16</span>)
+<span class="kw">names</span>(temps2) &lt;-<span class="st"> </span>days
+<span class="co"># Günlük ortalama sıcaklığı oluştur</span>
+avg_temp &lt;-<span class="st"> </span>(temps <span class="op">+</span><span class="st"> </span>temps2) <span class="op">/</span><span class="st"> </span><span class="dv">2</span>
+<span class="co"># `avg_temp`i görüntüle</span>
+avg_temp</code></pre></div>
+<pre><code>##   Pzt  Sal   Çar  Per   Cum
+##  10.5  14.0  13.5  17.5  18.5</code></pre>
+<p><br></p>
+</div>
+<div id="matrices" class="section level2">
+<h2>Matrisler</h2>
+<ul>
+<li><p>2 boyutlu bir yapıdaki veriler iki formatta temsil edilebilir: <em>matris</em> veya <em>veri çerçevesi (data frame).</em></p></li>
+<li>Matris, tek bir veri tipine sahip (atomik vektörler gibi) 2B veri yapıları için kullanılır.
+<ul>
+<li>Genellikle matrisler sayısal (numeric) nesnelerden oluşur.</li>
+</ul></li>
+<li><p>Bir matris oluşturmak için <span style="color:blue"><strong>matrix()</strong></span> komutunu kullanın.</p></li>
+</ul>
+<p><span style="color:blue">** matrix() **</span> sözdizimi şöyledir:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(x, <span class="dt">nrow=</span>a, <span class="dt">ncol=</span>b, <span class="dt">byrow=</span><span class="ot">FALSE</span><span class="op">/</span><span class="ot">TRUE</span>)</code></pre></div>
+<p>-<em>x</em> matrisi dolduracak veridir.</p>
+<p>-<em>nrow</em> ve <em>ncol</em> sırasıyla satır ve sütun sayısını belirtir.<br />
+Genellikle sadece birini belirtmek yeterlidir, çünkü öğe sayısı ve tek bir koşul diğerini belirleyecektir.</p>
+<p>-<em>byrow</em> öğelerin satıra göre mi yoksa sütuna göre mi doldurulacağını belirtir. Varsayılan değer <span style="color:blue"><strong>byrow=FALSE</strong></span>'tur, yani veriler sütuna göre doldurulur.</p>
+<p><br></p>
+</div>
+<div id="creating-a-matrix-from-scratch" class="section level2">
+<h2>Sıfırdan matris oluşturma</h2>
+<p>Matris oluşturmaya basit bir örnek:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">ncol=</span><span class="dv">3</span>, <span class="dt">byrow=</span><span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6</code></pre>
+<p>Eğer <strong>byrow=TRUE</strong> kullanırsak görünümdeki farka dikkat edin:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">ncol=</span><span class="dv">3</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6</code></pre>
+<p>Vektör oluştururken kullandığımız <span style="color:blue"><strong>c()</strong></span> fonksiyonunu kullanarak bir matrisin değerlerini belirleyebiliriz:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">13</span>,<span class="dv">18</span>,<span class="dv">17</span>,<span class="dv">20</span>,<span
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

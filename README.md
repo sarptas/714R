@@ -9,7 +9,7 @@ Yüksek Lisans Dersi
 - [R'a Giriş](https://sarptas.github.io/714R/714R_1_R_Giris.html)
   R nedir? Neden R programlama dili? R'ın kısa tatihçesi
 - [Vektör Verilerle Çalışma](https://sarptas.github.io/714R/714R_1_Vektorler_ile_Calisma.html)
-  R'd aen temel nesne 'Vektör'. Vektör işlemleri ve vektör endeksleme
+  R'da temel nesne 'Vektör'. Vektör işlemleri ve vektör endeksleme
 - [Temel R Fonksiyonları](https://sarptas.github.io/714R/714R_2_Temel_R_Fonksiyonlari.html)
   R'da kullanılan temel fonksiyonlar
 

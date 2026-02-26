@@ -14,6 +14,6 @@ Yüksek Lisans Dersi
   R'da kullanılan temel fonksiyonlar
 - [R Değişkenleri](https://sarptas.github.io/714R/R_Degiskenleri.html)
 - [R Operatörleri](https://sarptas.github.io/714R/R_Operatorleri.html)
--	[R Veri Tipleri](https://sarptas.github.io/714RR_Veri_Tipleri.html)
+-	[R Veri Tipleri](https://sarptas.github.io/714R/R_Veri_Tipleri.html)
 
 

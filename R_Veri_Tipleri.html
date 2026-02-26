@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>714R :: R - Veri Tipleri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+    <style> 
+        body { font-family: "Google Sans Flex", sans-serif; font-size: 1.1em; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; }
+        h1, h2, h3 { color: #333; }
+        h1 {font-size: 2em}
+        h2 {font-size: 1.75em}
+        h3 {font-size: 1.5em}
+        pre { background: #f4f4f4; padding: 12px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: "Google Sans Code", monospace; }
+        .output-label { font-weight: bold; margin-top: 10px; display: block; }
+    </style>
+</head>
+<body>
+
+<h1>R'da Veri Tipleri</h1>
+
+<p>R'daki veri tipleri, bir değişkende saklanan bilginin türünü belirtir ve hesaplamalar ile analizler sırasında nasıl davranacağını belirler. Verinin bellekte nasıl temsil edildiğini ve fonksiyonların bunu nasıl yorumladığını tanımlar. R dinamik tipli bir dildir, yani bir değer oluşturulduğunda veri tipi otomatik olarak atanır.</p>
+
+<ul>
+    <li>Doğru veri tipini seçmek program performansını ve bellek verimliliğini artırır.</li>
+    <li>Uygun veri tipleri doğru matematiksel, mantıksal ve istatistiksel hesaplamaları garanti eder.</li>
+    <li>Doğru veri tipi seçimi veri işlemeyi kolaylaştırır ve kodun genel okunabilirliğini artırır.</li>
+</ul>
+
+<h2>1. Sayısal (Numeric) Veri Tipi</h2>
+
+<p>R'de ondalık nokta içeren sayılar <strong>numeric</strong> olarak adlandırılır. Bu, sayılar için varsayılan veri tipidir ve gerçek sayıları (reel sayıları) saklamak ve hesaplamalar yapmak için kullanılır. Sayısal değerler çift hassasiyetli kayan nokta formatında saklanır, bu da ondalık sayıların doğru temsilini sağlar.</p>
+
+<ul>
+    <li>Ondalık nokta içeren herhangi bir sayı otomatik olarak numeric olarak kabul edilir.</li>
+    <li>Numeric, R'de aritmetik ve istatistiksel işlemler için standart tiptir.</li>
+</ul>
+
+<p>R bir sayıyı değişkene atadığında, onu en az iki ondalık basamaklı double (ondalık) tipine dönüştürür. Ondalık olmayan sayılar açıkça belirtilmedikçe gerçek tamsayı değildir.</p>
+
+<pre><code class="language-r"># Ondalık içeren sayısal değişken
+x <- 5.6
+print(class(x))
+print(typeof(x))
+
+# Ondalık olmayan sayı
+y <- 5
+print(class(y))
+print(typeof(y))
+
+# y'nin tamsayı olup olmadığını kontrol et
+print(is.integer(y))</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] "numeric"
+[1] "double"
+[1] "numeric"
+[1] "double"
+[1] FALSE</code></pre>
+
+<ul>
+    <li><code>class()</code> değişkenin genel türünü belirler (numeric, character vb.).</li>
+    <li><code>typeof()</code> değerin içsel olarak nasıl saklandığını gösterir (double, integer, logical vb.).</li>
+    <li><code>is.integer()</code> değerin gerçek bir tamsayı olup olmadığını doğrular. Burada y tamsayı değildir çünkü R varsayılan olarak double olarak saklar.</li>
+</ul>
+
+<h2>2. Tamsayı (Integer) Veri Tipi</h2>
+
+<p>Tamsayı veri tipi, ondalık içermeyen sayıları saklamak için kullanılır. Tamsayılar <code>as.integer()</code> fonksiyonu kullanılarak veya sayının sonuna <strong>L</strong> eki eklenerek oluşturulur. Bu, R'ye değeri varsayılan double yerine tamsayı olarak saklamasını söyler.</p>
+
+<ul>
+    <li>R'de tamsayılar 32-bit işaretli tamsayı olarak saklanır, aralık -2³¹ ile 2³¹-1 arasındadır.</li>
+    <li>Tam sayılar gerektiğinde (sayımlar, indeksler veya kategorik sayısal kodlar gibi) kullanılır.</li>
+</ul>
+
+<pre><code class="language-r"># as.integer() ile tamsayı oluşturma
+x <- as.integer(5)
+print(class(x))
+print(typeof(x))
+
+# L eki ile tamsayı oluşturma
+y <- 5L
+print(class(y))
+print(typeof(y))</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] "integer"
+[1] "integer"
+[1] "integer"
+[1] "integer"</code></pre>
+
+<h2>3. Mantıksal (Logical) Veri Tipi</h2>
+
+<p>Mantıksal veri tipi, R'de <strong>TRUE</strong> veya <strong>FALSE</strong> boolean değerlerini temsil eder. Mantıksal değerler genellikle değişkenler arası karşılaştırmalarla veya doğrudan boolean atamasıyla oluşturulur. Karar verme, koşullu ifadeler ve veri filtrelemede kullanılır.</p>
+
+<pre><code class="language-r"># Karşılaştırma ile mantıksal değer oluşturma
+x <- 4
+y <- 3
+z <- x > y
+print(z)
+print(class(z))
+print(typeof(z))
+
+# Doğrudan atama ile mantıksal değer
+logi <- FALSE
+print(class(logi))
+print(typeof(logi))</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] TRUE
+[1] "logical"
+[1] "logical"
+[1] "logical"
+[1] "logical"</code></pre>
+
+<h2>4. Karmaşık (Complex) Veri Tipi</h2>
+
+<p>Karmaşık veri tipi, hem gerçek hem sanal bileşene sahip sayıları saklar. Sanal kısım <strong>i</strong> eki ile belirtilir. Bilimsel hesaplamalar, sinyal işleme ve matematiksel modellemede kullanılır.</p>
+
+<pre><code class="language-r"># Karmaşık sayı oluşturma
+x <- 4 + 3i
+print(class(x))
+print(typeof(x))</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] "complex"
+[1] "complex"</code></pre>
+
+<h2>5. Karakter (Character) Veri Tipi</h2>
+
+<p>Karakter veri tipi, metinleri (harfler, sayılar, özel semboller) saklamak için kullanılır. Karakter değerleri (string) tek (') veya çift (") tırnak içinde yazılır. İsimler, etiketler, mesajlar ve veri setlerindeki metinsel bilgiler için yaygındır.</p>
+
+<pre><code class="language-r"># Karakter değişkeni oluşturma
+char <- "Geeksforgeeks"
+print(class(char))
+print(typeof(char))</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] "character"
+[1] "character"</code></pre>
+
+<h2>6. Ham (Raw) Veri Tipi</h2>
+
+<p>Ham veri tipi, bayt seviyesinde veri saklamak ve işlemek için kullanılır. İşlenmemiş ikili değerleri temsil eder; dosya işlemleri, ağ verileri veya ikili protokoller için faydalıdır. Ham vektörler 00 ile FF (onaltılık) aralığındaki elemanlardan oluşur.</p>
+
+<pre><code class="language-r"># Ham vektör oluşturma
+x <- as.raw(c(0x1, 0x2, 0x3, 0x4, 0x5))
+print(x)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] 01 02 03 04 05</code></pre>
+
+<h2>R'de Tip Doğrulama</h2>
+
+<p>R, bir nesnenin veri tipini doğrulamak için <code>is.</code> önekiyle başlayan fonksiyonlar sağlar. Nesnenin tipi eşleşirse <strong>TRUE</strong>, değilse <strong>FALSE</strong> döner.</p>
+
+<p>Sözdizimi: <code>is.veri_tipi(nesne)</code></p>
+
+<pre><code class="language-r">print(is.logical(TRUE))
+print(is.integer(3L))
+print(is.numeric(10.5))
+print(is.complex(1+2i))
+print(is.character("12-04-2020"))
+print(is.integer("a"))
+print(is.numeric(2+3i))</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] TRUE
+[1] TRUE
+[1] TRUE
+[1] TRUE
+[1] TRUE
+[1] FALSE
+[1] FALSE</code></pre>
+
+<h2>R'de Veri Tipi Dönüşümü</h2>
+
+<p>Veri tipi dönüşümü (coercion), bir nesneyi bir tipden diğerine değiştirmektir. R tarafından otomatik yapılabilir veya programcı tarafından manuel olarak gerçekleştirilebilir.</p>
+
+<ul>
+    <li>Örtük dönüşüm: R gerektiğinde otomatik dönüştürür.</li>
+    <li>Açık dönüşüm: <code>as.numeric()</code>, <code>as.character()</code> gibi fonksiyonlarla manuel yapılır.</li>
+    <li>Bazı dönüşümler mümkün olmayabilir; bu durumda NA döner ve uyarı verir.</li>
+</ul>
+
+<p>Sözdizimi: <code>as.veri_tipi(nesne)</code></p>
+
+<pre><code class="language-r">print(as.numeric(TRUE))
+print(as.complex(3L))
+print(as.logical(10.5))
+print(as.character(1+2i))
+print(as.numeric("12-04-2020"))</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] 1
+
+[1] 3+0i
+
+[1] TRUE
+
+[1] "1+2i"
+
+Warning message in print(as.numeric("12-04-2020")):
+“NAs introduced by coercion”
+
+[1] NA</code></pre>
+
+<hr>
+
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>714R :: R Operatörleri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+    <style> 
+        body { font-family: "Google Sans Flex", sans-serif; font-size: 1.1em; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; }
+        h1, h2, h3 { color: #333; }
+        h1 {font-size: 2em}
+        h2 {font-size: 1.75em}
+        h3 {font-size: 1.5em}
+        pre { background: #f4f4f4; padding: 12px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: "Google Sans Code", monospace; }
+        .output-label { font-weight: bold; margin-top: 10px; display: block; }
+    </style>
+</head>
+<body>
+
+<h1>R Operatörleri</h1>
+
+<p>R'deki operatörler, değişkenler ve değerler (operandlar) üzerinde işlem yapan sembollerdir. Matematiksel hesaplamalar, mantıksal karşılaştırmalar, atamalar ve diğer işlemleri verimli bir şekilde gerçekleştirmenizi sağlar.</p>
+
+<h2>Aritmetik Operatörler</h2>
+
+<p>Aritmetik operatörler, sayısal değerler veya vektörler üzerinde matematiksel işlemler gerçekleştirir. R'de vektörlerle çalışırken bu işlemler eleman bazında uygulanır.</p>
+
+<h3>1. Toplama (+)</h3>
+
+<p>Her iki operandın karşılık gelen konumlarındaki değerler toplanır.</p>
+
+<pre><code class="language-r">a <- c(1, 0.1)
+b <- c(2.33, 4)
+print(a + b)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] 3.33 4.10</code></pre>
+
+<h3>2. Çıkarma (-)</h3>
+
+<p>İkinci operandın değerleri birinciden çıkarılır.</p>
+
+<pre><code class="language-r">a <- 6
+b <- 8.4
+print(a - b)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] -2.4</code></pre>
+
+<h3>3. Çarpma (*)</h3>
+
+<p>Vektörlerin karşılık gelen elemanları veya tamsayılar '*' operatörü ile çarpılır.</p>
+
+<pre><code class="language-r">b = c(4,4)
+c = c(5,5)
+print(b * c)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] 20 20</code></pre>
+
+<h3>4. Bölme (/)</h3>
+
+<p>Birinci operand ikinci operanda '/' operatörü ile bölünür.</p>
+
+<pre><code class="language-r">a <- 10
+b <- 5
+print(a / b)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] 2</code></pre>
+
+<h3>5. Üs Alma (^)</h3>
+
+<p>Birinci operand ikinci operandın üssü olarak alınır.</p>
+
+<pre><code class="language-r">a <- 4
+b <- 5
+print(a ^ b)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] 1024</code></pre>
+
+<h3>6. Mod Alma (%%)</h3>
+
+<p>Birinci operandın ikinci operanda bölümünden kalanını döndürür.</p>
+
+<pre><code class="language-r">a <- c(2, 22)
+b <- c(2,4)
+print(a %% b)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] 0 2</code></pre>
+
+<h2>Mantıksal Operatörler</h2>
+
+<p>R'deki mantıksal operatörler, operandlar arasında belirtilen operatöre göre eleman bazında karar işlemleri yapar ve True veya False boolean değeri döndürür. Sıfır olmayan herhangi bir tamsayı değeri TRUE kabul edilir (karmaşık veya gerçek sayı olsa bile).</p>
+
+<h3>1. Eleman Bazında VE (&)</h3>
+
+<p>Her iki operand da True ise True döndürür.</p>
+
+<pre><code class="language-r">a <- c(TRUE, 0.1)
+b <- c(0,4+3i)
+print(a & b)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] FALSE  TRUE</code></pre>
+
+<h3>2. Eleman Bazında VEYA (|)</h3>
+
+<p>Operandlardan en az biri True ise True döndürür.</p>
+
+<pre><code class="language-r">a <- c(TRUE, 0.1)
+b <- c(0,4+3i)
+print(a | b)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] TRUE TRUE</code></pre>
+
+<h3>3. DEĞİL (!)</h3>
+
+<p>Unary bir operatör olup operandın elemanlarının durumunu tersine çevirir.</p>
+
+<pre><code class="language-r">a <- c(0, FALSE)
+print(!a)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] TRUE TRUE</code></pre>
+
+<h3>4. Kısa Devre VE (&&)</h3>
+
+<p>Operandların ilk elemanlarının her ikisi de True ise True döndürür.</p>
+
+<pre><code class="language-r">a <- c(TRUE, 0.1)
+b <- c(0,4+3i)
+print(a[1] && b[1])</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] FALSE</code></pre>
+
+<h3>5. Kısa Devre VEYA (||)</h3>
+
+<p>Operandların ilk elemanlarından herhangi biri True ise True döndürür.</p>
+
+<pre><code class="language-r">a <- c(TRUE, 0.1)
+b <- c(0,4+3i)
+print(a[1] || b[1])</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] TRUE</code></pre>
+
+<h2>İlişkisel Operatörler</h2>
+
+<p>R'deki ilişkisel operatörler, operandların karşılık gelen elemanları arasında karşılaştırma yapar. Birinci operand ikinciye göre ilişkiyi sağlıyorsa boolean TRUE değeri döndürür. TRUE değeri her zaman FALSE'tan büyük kabul edilir.</p>
+
+<h3>1. Küçüktür (&lt;)</h3>
+
+<p>Birinci operandın ilgili elemanı ikinci operandın elemanından küçükse TRUE döndürür.</p>
+
+<pre><code class="language-r">a <- c(TRUE, 0.1, "apple")
+b <- c(0, 0.1, "bat")
+print(a < b)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] FALSE FALSE  TRUE</code></pre>
+
+<h3>2. Küçük veya Eşittir (&lt;=)</h3>
+
+<p>Birinci operandın ilgili elemanı ikinci operandın elemanına küçük veya eşitse TRUE döndürür.</p>
+
+<pre><code class="language-r">a <- c(TRUE, 0.1, "apple")
+b <- c(TRUE, 0.1, "bat")
+c <- as.character(a)
+d <- as.character(b)
+print(c <= d)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] TRUE TRUE TRUE</code></pre>
+
+<h3>3. Büyüktür (&gt;)</h3>
+
+<p>Birinci operandın ilgili elemanı ikinci operandın elemanından büyükse TRUE döndürür.</p>
+
+<pre><code class="language-r">a <- c(TRUE, 0.1, "apple")
+b <- c(TRUE, 0.1, "bat")
+print(a > b)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] FALSE FALSE FALSE</code></pre>
+
+<h3>4. Büyük veya Eşittir (&gt;=)</h3>
+
+<p>Birinci operandın ilgili elemanı ikinci operandın elemanına büyük veya eşitse TRUE döndürür.</p>
+
+<pre><code class="language-r">a <- c(TRUE, 0.1, "apple")
+b <- c(TRUE, 0.1, "bat")
+print(a >= b)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1]  TRUE  TRUE FALSE</code></pre>
+
+<h3>5. Eşit Değildir (!=)</h3>
+
+<p>Birinci operandın ilgili elemanı ikinci operandın elemanına eşit değilse TRUE döndürür.</p>
+
+<pre><code class="language-r">a <- c(TRUE, 0.1, 'apple')
+b <- c(0, 0.1, "bat")
+print(a != b)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1]  TRUE FALSE  TRUE</code></pre>
+
+<h2>Atama Operatörleri</h2>
+
+<p>R'deki atama operatörleri, çeşitli veri nesnelerine (tamsayı, vektör, fonksiyon vb.) değer atamak için kullanılır. Atanan değerler değişken isimleri ile saklanır.</p>
+
+<h3>1. Sol Atama (&lt;- , &lt;&lt;- , =)</h3>
+
+<p>Bir vektöre değer atar.</p>
+
+<pre><code class="language-r">vec1 = c("ab", TRUE)
+print(vec1)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] "ab"   "TRUE"</code></pre>
+
+<h3>2. Sağ Atama (-&gt; , -&gt;&gt;)</h3>
+
+<p>Bir vektöre değer atar.</p>
+
+<pre><code class="language-r">c("ab", TRUE) ->> vec1
+print(vec1)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] "ab"   "TRUE"</code></pre>
+
+<h2>Çeşitli Operatörler</h2>
+
+<p>R'deki çeşitli (miscellaneous) operatörler, dizilerin oluşturulması ve vektör atamalarının (sol veya sağ yönlü) yapılmasını sağlar.</p>
+
+<h3>1. %in% Operatörü</h3>
+
+<p>Bir elemanın bir listeye ait olup olmadığını kontrol eder; varsa TRUE, yoksa FALSE döndürür.</p>
+
+<pre><code class="language-r">val <- 0.1
+a <- c(TRUE, 0.1, "apple")
+print(val %in% a)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] TRUE</code></pre>
+
+<h3>2. %*% Operatörü (Matris Çarpımı)</h3>
+
+<p>%*% operatörü matris çarpımı gerçekleştirir.</p>
+
+<ul>
+    <li>Birinci matrisin sütun sayısı ikinci matrisin satır sayısına eşit olmalıdır.</li>
+    <li>Eğer A (r × c) ve B (c × r) ise sonuç (r × r) olur.</li>
+</ul>
+
+<pre><code class="language-r">mat = matrix(c(1,2,3,4,5,6), nrow=2, ncol=3)
+print(mat)
+print(t(mat))
+pro = mat %*% t(mat)
+print(pro)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+     [,1] [,2]
+[1,]    1    2
+[2,]    3    4
+[3,]    5    6
+     [,1] [,2]
+[1,]   35   44
+[2,]   44   56</code></pre>
+
+<hr>
+</body>
+</html>
+

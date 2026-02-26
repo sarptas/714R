@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>714R :: R Değişkenleri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+    <style> 
+        body { font-family: "Google Sans Flex", sans-serif; font-size: 1.1em; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; }
+        h1, h2, h3 { color: #333; }
+        h1 {font-size: 2em}
+        h2 {font-size: 1.75em}
+        h3 {font-size: 1.5em}
+        pre { background: #f4f4f4; padding: 12px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: "Google Sans Code", monospace; }
+        .output-label { font-weight: bold; margin-top: 10px; display: block; }
+    </style>
+</head>
+<body>
+
+<h1>R Değişkenleri - Oluşturma, Adlandırma ve Kullanma</h1>
+
+<p>Değişken, veriyi saklamak için ayrılmış bir bellek konumudur ve ona atanan isim, saklanan değere erişmenizi ve değiştirmenizi sağlar. Bellek bloğunun bir tanımlayıcısı olarak davranır ve programın çalışması sırasında farklı veri tiplerindeki değerleri tutabilir.</p>
+
+<ul>
+    <li>Değişkenler, daha sonra erişilebilen veya güncellenebilen değerleri bellekte saklar.</li>
+    <li>R değişkenleri dinamik tiplidir; tipi atanan değere göre otomatik belirlenir.</li>
+    <li>Atama operatörü olarak standart olarak <code>&lt;-</code> kullanılır, ancak <code>=</code> da kullanılabilir.</li>
+</ul>
+
+<h2>R'de Değişken Nasıl Oluşturulur?</h2>
+
+<p>R'de bir değişken, bir isme değer atayarak oluşturulur. R, değişkenlere değer atamak için üç yöntem destekler:</p>
+
+<h3>1. Eşitlik Operatörü (=) Kullanarak</h3>
+
+<p>Eşitlik operatörü (=), değeri doğrudan değişkene atar.</p>
+
+<pre><code class="language-r"># Eşitlik operatörü ile string atama
+var1 = "Merhaba Geeks"
+print(var1)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] "Merhaba Geeks"</code></pre>
+
+<h3>2. Sol Yönlü Operatör (&lt;-) Kullanarak</h3>
+
+<p>Sol yönlü operatör <code>&lt;-</code>, sağ taraftaki değeri soldaki değişkene atar. R'de en yaygın kullanılan yöntemdir çünkü atama yönünü netleştirir ve karşılaştırma (=) ile karışmasını önler.</p>
+
+<pre><code class="language-r"># Sol yönlü operatör ile string atama
+var2 <- "Koda Hazır"
+print(var2)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] "Koda Hazır"</code></pre>
+
+<h3>3. Sağ Yönlü Operatör (-&gt;) Kullanarak</h3>
+
+<p>Sağ yönlü operatör <code>-&gt;</code>, soldaki değeri sağdaki değişkene atar. <code>&lt;-</code> ile aynı işi yapar ancak yönü tersinedir.</p>
+
+<pre><code class="language-r"># Sağ yönlü operatör ile string atama
+"Bayt Bayt" -> var3
+print(var3)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] "Bayt Bayt"</code></pre>
+
+<h2>R'de Değişken Adlandırma Kuralları</h2>
+
+<p>R'de değişken isimleri belirli kurallara uymalıdır. Bu kurallar, isimlerin geçerli olmasını ve R sözdizimiyle çakışmamasını sağlar.</p>
+
+<ol>
+    <li><strong>Geçerli Karakterler:</strong> Harfler (a-z, A-Z), sayılar (0-9), nokta (.) ve alt çizgi (_) kullanılabilir.
+        <pre><code class="language-r">var1 <- 10
+var.name <- "R"
+var_name <- TRUE</code></pre>
+    </li>
+
+    <li><strong>Büyük/küçük harf duyarlılığı:</strong> R büyük/küçük harfe duyarlıdır.
+        <pre><code class="language-r">deger <- 100
+Deger <- 200
+print(deger)
+print(Deger)</code></pre>
+
+        <div class="output-label">Çıktı</div>
+        <pre><code>[1] 100
+[1] 200</code></pre>
+    </li>
+
+    <li><strong>Özel Karakter Kullanılamaz:</strong> $, #, %, @ gibi özel karakterler kullanılamaz.
+        <pre><code class="language-r">var$1 <- 5</code></pre>
+        Hata verir.
+    </li>
+
+    <li><strong>Başlangıç Karakteri:</strong> Değişken adı harf veya nokta (.) ile başlamalıdır.
+        <pre><code class="language-r">var <- 10
+.var <- "Merhaba"</code></pre>
+    </li>
+
+    <li><strong>Sayı veya Alt Çizgi ile Başlamaz:</strong> Sayı veya alt çizgi ile başlayamaz.
+        <pre><code class="language-r">2var <- 5</code></pre>
+        Hata verir.
+    </li>
+
+    <li><strong>Nokta Sonrası Sayı Kuralı:</strong> Nokta (.) ile başlıyorsa hemen ardından sayı gelmemelidir.
+        <pre><code class="language-r">.3var <- 10</code></pre>
+        Hata verir.
+    </li>
+
+    <li><strong>Ayrılmış Kelimeler Kullanılamaz:</strong> TRUE, FALSE, NA, NULL, Inf, function gibi ayrılmış kelimeler değişken adı olamaz.
+        <pre><code class="language-r">TRUE <- 1</code></pre>
+        Hata verir.
+    </li>
+</ol>
+
+<h2>R Programlamada Değişken Kapsamı (Scope)</h2>
+
+<p>Değişken kapsamı, değişkenin programın hangi kısmında erişilebilir ve kullanılabilir olduğunu belirler. Kapsamı anlamak hataları önler ve veriyi etkili yönetmeyi sağlar. İki ana kapsam türü vardır:</p>
+
+<h3>1. Global Değişkenler</h3>
+
+<p>Global değişkenler herhangi bir fonksiyonun dışında tanımlanır ve programın her yerinden erişilebilir/değiştirilebilir. Program süresince bellekte kalır (açıkça silinmedikçe).</p>
+
+<ul>
+    <li>Program boyunca bellekte kalır, bellek kullanımını artırabilir.</li>
+    <li>Aynı isim farklı yerlerde kullanılırsa çakışma yaratabilir.</li>
+</ul>
+
+<pre><code class="language-r">global = 5
+goster = function(){
+  global = 20
+  print(global)
+}
+goster()
+print(global)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] 20
+[1] 5</code></pre>
+
+<h3>2. Yerel (Local) Değişkenler</h3>
+
+<p>Yerel değişkenler bir fonksiyon veya belirli kod bloğu içinde oluşturulur ve yalnızca o blok içinde kullanılabilir. Fonksiyon bittiğinde bellekten silinir.</p>
+
+<ul>
+    <li>Fonksiyon içinde tanımlanır ve yalnızca o fonksiyonda erişilebilir.</li>
+    <li>Fonksiyon çalışırken var olur, bittiğinde yok olur.</li>
+    <li>Diğer kısımlardaki değişkenlerle çakışmayı önler.</li>
+</ul>
+
+<pre><code class="language-r">fonksiyonum <- function() {
+  yerel_degisken <- 10  # Yerel değişken
+  print(yerel_degisken)
+}
+fonksiyonum()
+print(yerel_degisken)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] 10
+Error: object 'yerel_degisken' not found</code></pre>
+
+<h2>R Değişkenleri İçin Önemli Fonksiyonlar</h2>
+
+<p>R, değişkenlerle çalışmayı kolaylaştıran birkaç yerleşik fonksiyon sunar.</p>
+
+<h3>1. class() Fonksiyonu</h3>
+
+<p>Değişkenin veri tipini belirler.</p>
+
+<pre><code class="language-r">var1 <- "Merhaba Geeks 001"
+print(class(var1))</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] "character"</code></pre>
+
+<h3>2. ls() Fonksiyonu</h3>
+
+<p>Çalışma alanında mevcut tüm değişkenleri listeler.</p>
+
+<pre><code class="language-r">var1 <- "merhaba"
+var2 <- 20
+var3 <- TRUE
+print(ls())</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] "var1" "var2" "var3"</code></pre>
+
+<h3>3. rm() Fonksiyonu</h3>
+
+<p>Belirtilen değişkeni siler ve belleği temizler.</p>
+
+<pre><code class="language-r">var3 <- "merhaba"
+rm(var3)
+print(var3)</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>Error: object 'var3' not found</code></pre>
+
+<h3>4. exists() Fonksiyonu</h3>
+
+<p>Bir değişkenin çalışma alanında olup olmadığını kontrol eder (TRUE/FALSE döner).</p>
+
+<pre><code class="language-r">var1 <- 10
+print(exists("var1"))
+print(exists("varX"))</code></pre>
+
+<div class="output-label">Çıktı</div>
+<pre><code>[1] TRUE
+[1] FALSE</code></pre>
+
+<hr>
+
+</body>
+</html>
+

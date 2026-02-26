@@ -12,5 +12,8 @@ Yüksek Lisans Dersi
   R'da temel nesne 'Vektör'. Vektör işlemleri ve vektör endeksleme
 - [Temel R Fonksiyonları](https://sarptas.github.io/714R/714R_2_Temel_R_Fonksiyonlari.html)
   R'da kullanılan temel fonksiyonlar
+- [R Değişkenleri](https://sarptas.github.io/714R/R_Degiskenleri.html)
+- [R Operatörleri](https://sarptas.github.io/714R/R_Operatorleri.html)
+-	[R Veri Tipleri](https://sarptas.github.io/714RR_Veri_Tipleri.html)
 
 

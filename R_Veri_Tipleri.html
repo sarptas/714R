@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>714R :: R - Veri Tipleri</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
-    <style> 
-        body { font-family: "Google Sans Flex", sans-serif; font-size: 1.1em; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; }
-        h1, h2, h3 { color: #333; }
-        h1 {font-size: 2em}
-        h2 {font-size: 1.75em}
-        h3 {font-size: 1.5em}
-        pre { background: #f4f4f4; padding: 12px; border-radius: 5px; overflow-x: auto; }
-        code { font-family: "Google Sans Code", monospace; }
-        .output-label { font-weight: bold; margin-top: 10px; display: block; }
-    </style>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>714R :: R Veri Tipleri</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="tema.css">
 </head>
 <body>
 
+<div class="baslik">
+      <h1><a href="714R.html">714R - Enerji Sistemleri için R ile Veri Analizi</a></h1>
+      <p class="altbaslik">
+          Doç. Dr. Hasan Sarptaş<br>
+          Ege Üniversitesi, Güneş Enerjisi ABD. Yüksek Lisans Dersi
+      </p>
+</div>
+
+<div class="icerik">
 <h1>R'da Veri Tipleri</h1>
 
 <p>R'daki veri tipleri, bir değişkende saklanan bilginin türünü belirtir ve hesaplamalar ile analizler sırasında nasıl davranacağını belirler. Verinin bellekte nasıl temsil edildiğini ve fonksiyonların bunu nasıl yorumladığını tanımlar. R dinamik tipli bir dildir, yani bir değer oluşturulduğunda veri tipi otomatik olarak atanır.</p>
@@ -54,12 +54,12 @@ print(typeof(y))
 # y'nin tamsayı olup olmadığını kontrol et
 print(is.integer(y))</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] "numeric"
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] "numeric"
 [1] "double"
 [1] "numeric"
 [1] "double"
-[1] FALSE</code></pre>
+[1] FALSE</cikti></pre>
 
 <ul>
     <li><code>class()</code> değişkenin genel türünü belirler (numeric, character vb.).</li>
@@ -86,11 +86,11 @@ y <- 5L
 print(class(y))
 print(typeof(y))</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] "integer"
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] "integer"
 [1] "integer"
 [1] "integer"
-[1] "integer"</code></pre>
+[1] "integer"</cikti></pre>
 
 <h2>3. Mantıksal (Logical) Veri Tipi</h2>
 
@@ -109,12 +109,12 @@ logi <- FALSE
 print(class(logi))
 print(typeof(logi))</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] TRUE
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] TRUE
 [1] "logical"
 [1] "logical"
 [1] "logical"
-[1] "logical"</code></pre>
+[1] "logical"</cikti></pre>
 
 <h2>4. Karmaşık (Complex) Veri Tipi</h2>
 
@@ -125,9 +125,9 @@ x <- 4 + 3i
 print(class(x))
 print(typeof(x))</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] "complex"
-[1] "complex"</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] "complex"
+[1] "complex"</cikti></pre>
 
 <h2>5. Karakter (Character) Veri Tipi</h2>
 
@@ -138,9 +138,9 @@ char <- "Geeksforgeeks"
 print(class(char))
 print(typeof(char))</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] "character"
-[1] "character"</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] "character"
+[1] "character"</cikti></pre>
 
 <h2>6. Ham (Raw) Veri Tipi</h2>
 
@@ -150,8 +150,8 @@ print(typeof(char))</code></pre>
 x <- as.raw(c(0x1, 0x2, 0x3, 0x4, 0x5))
 print(x)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] 01 02 03 04 05</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] 01 02 03 04 05</cikti></pre>
 
 <h2>R'de Tip Doğrulama</h2>
 
@@ -167,14 +167,14 @@ print(is.character("12-04-2020"))
 print(is.integer("a"))
 print(is.numeric(2+3i))</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] TRUE
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] TRUE
 [1] TRUE
 [1] TRUE
 [1] TRUE
 [1] TRUE
 [1] FALSE
-[1] FALSE</code></pre>
+[1] FALSE</cikti></pre>
 
 <h2>R'de Veri Tipi Dönüşümü</h2>
 
@@ -194,8 +194,8 @@ print(as.logical(10.5))
 print(as.character(1+2i))
 print(as.numeric("12-04-2020"))</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] 1
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] 1
 
 [1] 3+0i
 
@@ -206,9 +206,8 @@ print(as.numeric("12-04-2020"))</code></pre>
 Warning message in print(as.numeric("12-04-2020")):
 “NAs introduced by coercion”
 
-[1] NA</code></pre>
-
-<hr>
+[1] NA</cikti></pre>
+</div>
 
 </body>
 </html>

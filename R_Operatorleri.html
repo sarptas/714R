@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>714R :: R Operatörleri</title>
+    <title>714R :: R'da Operatörleri</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
-    <style> 
-        body { font-family: "Google Sans Flex", sans-serif; font-size: 1.1em; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; }
-        h1, h2, h3 { color: #333; }
-        h1 {font-size: 2em}
-        h2 {font-size: 1.75em}
-        h3 {font-size: 1.5em}
-        pre { background: #f4f4f4; padding: 12px; border-radius: 5px; overflow-x: auto; }
-        code { font-family: "Google Sans Code", monospace; }
-        .output-label { font-weight: bold; margin-top: 10px; display: block; }
-    </style>
+    <link rel="stylesheet" href="tema.css">
 </head>
 <body>
+
+<div class="baslik">
+      <h1><a href="714R.html">714R - Enerji Sistemleri için R ile Veri Analizi</a></h1>
+      <p class="altbaslik">
+          Doç. Dr. Hasan Sarptaş<br>
+          Ege Üniversitesi, Güneş Enerjisi ABD. Yüksek Lisans Dersi
+      </p>
+</div>
+
+<div class="icerik">
 
 <h1>R Operatörleri</h1>
 
@@ -30,14 +31,14 @@
 
 <h3>1. Toplama (+)</h3>
 
-<p>Her iki operandın karşılık gelen konumlarındaki değerler toplanır.</p>
+<p>Her iki operandın (terimin) değerleri toplanır.</p>
 
 <pre><code class="language-r">a <- c(1, 0.1)
 b <- c(2.33, 4)
 print(a + b)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] 3.33 4.10</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] 3.33 4.10</cikti></pre>
 
 <h3>2. Çıkarma (-)</h3>
 
@@ -47,19 +48,21 @@ print(a + b)</code></pre>
 b <- 8.4
 print(a - b)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] -2.4</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] -2.4</cikti></pre>
 
 <h3>3. Çarpma (*)</h3>
 
 <p>Vektörlerin karşılık gelen elemanları veya tamsayılar '*' operatörü ile çarpılır.</p>
 
-<pre><code class="language-r">b = c(4,4)
+<pre><code class="language-r">print(3*4)
+b = c(4,4)
 c = c(5,5)
 print(b * c)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] 20 20</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] 12
+[2] 20 20</cikti></pre>
 
 <h3>4. Bölme (/)</h3>
 
@@ -69,8 +72,8 @@ print(b * c)</code></pre>
 b <- 5
 print(a / b)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] 2</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] 2</cikti></pre>
 
 <h3>5. Üs Alma (^)</h3>
 
@@ -80,8 +83,8 @@ print(a / b)</code></pre>
 b <- 5
 print(a ^ b)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] 1024</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] 1024</cikti></pre>
 
 <h3>6. Mod Alma (%%)</h3>
 
@@ -91,8 +94,8 @@ print(a ^ b)</code></pre>
 b <- c(2,4)
 print(a %% b)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] 0 2</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] 0 2</cikti></pre>
 
 <h2>Mantıksal Operatörler</h2>
 
@@ -106,8 +109,8 @@ print(a %% b)</code></pre>
 b <- c(0,4+3i)
 print(a & b)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] FALSE  TRUE</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] FALSE  TRUE</cikti></pre>
 
 <h3>2. Eleman Bazında VEYA (|)</h3>
 
@@ -117,8 +120,8 @@ print(a & b)</code></pre>
 b <- c(0,4+3i)
 print(a | b)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] TRUE TRUE</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] TRUE TRUE</cikti></pre>
 
 <h3>3. DEĞİL (!)</h3>
 
@@ -127,8 +130,8 @@ print(a | b)</code></pre>
 <pre><code class="language-r">a <- c(0, FALSE)
 print(!a)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] TRUE TRUE</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] TRUE TRUE</cikti></pre>
 
 <h3>4. Kısa Devre VE (&&)</h3>
 
@@ -138,8 +141,8 @@ print(!a)</code></pre>
 b <- c(0,4+3i)
 print(a[1] && b[1])</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] FALSE</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] FALSE</cikti></pre>
 
 <h3>5. Kısa Devre VEYA (||)</h3>
 
@@ -149,8 +152,8 @@ print(a[1] && b[1])</code></pre>
 b <- c(0,4+3i)
 print(a[1] || b[1])</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] TRUE</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] TRUE</cikti></pre>
 
 <h2>İlişkisel Operatörler</h2>
 
@@ -164,8 +167,8 @@ print(a[1] || b[1])</code></pre>
 b <- c(0, 0.1, "bat")
 print(a < b)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] FALSE FALSE  TRUE</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] FALSE FALSE  TRUE</cikti></pre>
 
 <h3>2. Küçük veya Eşittir (&lt;=)</h3>
 
@@ -177,8 +180,8 @@ c <- as.character(a)
 d <- as.character(b)
 print(c <= d)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] TRUE TRUE TRUE</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] TRUE TRUE TRUE</cikti></pre>
 
 <h3>3. Büyüktür (&gt;)</h3>
 
@@ -188,8 +191,8 @@ print(c <= d)</code></pre>
 b <- c(TRUE, 0.1, "bat")
 print(a > b)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] FALSE FALSE FALSE</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] FALSE FALSE FALSE</cikti></pre>
 
 <h3>4. Büyük veya Eşittir (&gt;=)</h3>
 
@@ -199,8 +202,8 @@ print(a > b)</code></pre>
 b <- c(TRUE, 0.1, "bat")
 print(a >= b)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1]  TRUE  TRUE FALSE</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1]  TRUE  TRUE FALSE</cikti></pre>
 
 <h3>5. Eşit Değildir (!=)</h3>
 
@@ -210,8 +213,8 @@ print(a >= b)</code></pre>
 b <- c(0, 0.1, "bat")
 print(a != b)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1]  TRUE FALSE  TRUE</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1]  TRUE FALSE  TRUE</cikti></pre>
 
 <h2>Atama Operatörleri</h2>
 
@@ -224,8 +227,8 @@ print(a != b)</code></pre>
 <pre><code class="language-r">vec1 = c("ab", TRUE)
 print(vec1)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] "ab"   "TRUE"</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] "ab"   "TRUE"</cikti></pre>
 
 <h3>2. Sağ Atama (-&gt; , -&gt;&gt;)</h3>
 
@@ -234,8 +237,8 @@ print(vec1)</code></pre>
 <pre><code class="language-r">c("ab", TRUE) ->> vec1
 print(vec1)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] "ab"   "TRUE"</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] "ab"   "TRUE"</cikti></pre>
 
 <h2>Çeşitli Operatörler</h2>
 
@@ -249,8 +252,8 @@ print(vec1)</code></pre>
 a <- c(TRUE, 0.1, "apple")
 print(val %in% a)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>[1] TRUE</code></pre>
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>[1] TRUE</cikti></pre>
 
 <h3>2. %*% Operatörü (Matris Çarpımı)</h3>
 
@@ -267,8 +270,8 @@ print(t(mat))
 pro = mat %*% t(mat)
 print(pro)</code></pre>
 
-<div class="output-label">Çıktı</div>
-<pre><code>     [,1] [,2] [,3]
+<div class="cikti-etiket">Çıktı</div>
+<pre><cikti>     [,1] [,2] [,3]
 [1,]    1    3    5
 [2,]    2    4    6
      [,1] [,2]
@@ -277,9 +280,8 @@ print(pro)</code></pre>
 [3,]    5    6
      [,1] [,2]
 [1,]   35   44
-[2,]   44   56</code></pre>
+[2,]   44   56</cikti></pre>
+</div>
 
-<hr>
 </body>
 </html>
-

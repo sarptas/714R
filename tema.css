@@ -1,0 +1,42 @@
+body {
+    font-family: "Google Sans Flex", sans-serif;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 0 auto;
+    padding: 20px;
+}
+h1, h2, h3 { color: #333; }
+h1 { font-size: 2em; margin: 0; }
+h2 { font-size: 1.75em; }
+h3 { font-size: 1.5em; }
+pre { background: #f4f4f4; padding: 12px; border-radius: 5px; overflow-x: auto; border: 0px solid #336699;}
+code { color: #330099; font-family: "Google Sans Code", monospace; }
+cikti { color: #CD2626; font-family: "Google Sans Code", monospace; }
+
+
+.cikti-etiket { font-weight: bold; margin-top: 30px; display: block; }
+
+.baslik {
+    background-color: #e3f2fd;           /* açık mavi */
+    margin: 0 -20px 2.5rem -20px;        /* kenar boşluklarını kırıyoruz */
+    padding: 2.5rem 20px 2rem 20px;      /* iç boşluk */
+    border-bottom: 1px solid #bbdefb;
+    text-align: center;
+}
+
+.baslijsection h1 {
+    color: #1565c0;
+    margin-bottom: 0.4rem;
+}
+
+.baslik .altbaslik {
+    color: #424242;
+    font-size: 1.15em;
+    margin: 0;
+    opacity: 0.95;
+}
+
+.icerik {
+max-width: 900px;
+margin-left: 200px;
+}

@@ -1,18 +1,28 @@
 body {
     font-family: "Google Sans Flex", sans-serif;
-    font-size: 1.1em;
+    font-size: 1em;
     line-height: 1.6;
     margin: 0 auto;
     padding: 20px;
+	color: #333;
 }
-h1, h2, h3 { color: #333; }
-h1 { font-size: 2em; margin: 0; }
-h2 { font-size: 1.75em; }
-h3 { font-size: 1.5em; }
+h1, h2, h3 { line-height: 1;}
+h1 { font-size: 1.75em; margin: 0; color: #1565C0;}
+h2 { font-size: 1.4em; margin-top: 1.5rem;}
+h3 { font-size: 1.2em; margin-top: 2rem;}
+h4 { font-size: 1.15em; }
 pre { background: #f4f4f4; padding: 12px; border-radius: 5px; overflow-x: auto; border: 0px solid #336699;}
-code { color: #330099; font-family: "Google Sans Code", monospace; }
+code { color: #1565C0; font-family: "Google Sans Code", monospace; }
 cikti { color: #CD2626; font-family: "Google Sans Code", monospace; }
 
+a { color: #1976D2}
+
+tag {
+	color: #fff;
+	background-color: #F8BBD0;
+	padding-left: 4px;
+	padding-right: 5px;
+}
 
 .cikti-etiket { font-weight: bold; margin-top: 30px; display: block; }
 
@@ -24,15 +34,16 @@ cikti { color: #CD2626; font-family: "Google Sans Code", monospace; }
     text-align: center;
 }
 
-.baslijsection h1 {
+.baslik-section h1 {
     color: #1565c0;
     margin-bottom: 0.4rem;
 }
 
 .baslik .altbaslik {
     color: #424242;
-    font-size: 1.15em;
-    margin: 0;
+    font-size: 1em;
+    margin-top: 3px;
+	margin-bottom: 3px;
     opacity: 0.95;
 }
 
